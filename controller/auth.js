@@ -96,7 +96,7 @@ export const logout = async(req, res) => {
 
 //is_logged_in for frontend 
 export const isLoggedIn = async(req, res, next) => {
-    const token = req.cookies.access_token;
+    const token = req.cookie.access_token;
     if(!token){
         return res.json(false);
     }
