@@ -75,7 +75,7 @@ export const login = async(req, res, next) => {
             expiresIn: "1 day"
         });
         //set up cookie(httpOnly)
-        res.cookie("access_token", token, {
+        res.cookies("access_token", token, {
             httpOnly: true,
         })
         .json({message: "login success."});
@@ -96,7 +96,7 @@ export const logout = async(req, res) => {
 
 //is_logged_in for frontend 
 export const isLoggedIn = async(req, res, next) => {
-    const token = req.cookie.access_token;
+    const token = req.cookies.access_token;
     if(!token){
         return res.json(false);
     }
