@@ -75,7 +75,7 @@ export const login = async(req, res, next) => {
             expiresIn: "1 day"
         });
         //set up cookie(httpOnly)
-        res.cookies("access_token", token, {
+        res.cookie("access_token", token, {
             httpOnly: true,
             secure: true
         })
