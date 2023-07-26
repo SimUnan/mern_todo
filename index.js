@@ -13,7 +13,7 @@ dotenv.config();
 
 //middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({credentials: true}));
 app.use(morgan('tiny'));
 app.use(cookieParser());  
 
