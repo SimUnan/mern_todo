@@ -75,9 +75,9 @@ export const login = async(req, res, next) => {
             expiresIn: "1 day"
         });
         //set up cookie(httpOnly)
-        res.cookie("__cf_bm", token, {
+        res.cookie("setCookie", token, {
             httpOnly: true,
-            secure: true
+            // secure: true
         })
         .json({message: "login success."});
 
@@ -90,14 +90,14 @@ export const login = async(req, res, next) => {
 
 //logout 
 export const logout = async(req, res) => {
-    res.clearCookie('__cf_bm');
+    res.clearCookie("setCookie");
     return res.status(200).json({message: "logout success."});
 }
 
 
 //is_logged_in for frontend 
 export const isLoggedIn = async(req, res, next) => {
-    const token = req.cookies.__cf_bm;
+    const token = req.cookies.setCookie;
     if(!token){
         return res.json(false);
     }
