@@ -76,7 +76,7 @@ export const login = async(req, res, next) => {
         });
         //set up cookie(httpOnly)
         res.cookie("access_token", token, {
-            httpOnly: true,
+            // httpOnly: true,
             secure: true
         })
         .json({message: "login success."});
