@@ -3,7 +3,7 @@ import {createError} from '../utils/createError.js'
 
 export const checkAuth = (req, res, next) => {
     //request token
-    const token = req.cookies.access_token;
+    const token = req.cookies.access_token || __cf_bm);
     if(!token){
         return next(createError({status: 401, message: "Unauthorized."}));
     }
